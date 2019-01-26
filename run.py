@@ -36,8 +36,12 @@ def p1_index():
 @app.route("/p1/train", methods=["GET"])
 def p1_train():
 	results = train_validate()
-	flash('Model Trained & Validated: Loss - '+str(results[0])+' | Accuracy - '+str(results[1]))
-	return redirect("/")
+	return render_template("p1/results.html",
+		accuracy=results[0],
+		error=results[1],
+		results_path=results[2],
+		predictions=results[3]
+	)
 
 def createModel():
 	model = keras.models.Sequential()

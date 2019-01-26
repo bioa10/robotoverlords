@@ -37,18 +37,20 @@ def train_validate():
   plt.ylabel('loss/error')
   plt.xlabel('training epoch')
   plt.legend()
-  results_path = 'static/images/graphs/results/p1_results.png'
-  plt.savefig(results_path)
+  results_path = 'images/graphs/results/p1_results.png'
+  plt.savefig("static/"+results_path)
   #plt.show()
 
   testing_loss = model.evaluate(x_test,y_test)
   c = np.random.choice(len(x_test),10)
   sample = x_test[c]
   y_test = model.predict(sample)
+  predictions = []
   for pic,label in zip(sample,y_test):
     label = np.argmax(label)
     pic = pic.reshape(28,28)*255
     pic = Image.fromarray(np.uint8(pic))
     pic = pic.resize((512,512))
     pic.save("./static/images/graphs/results/"+str(label)+".jpg")
-  return [testing_loss[0], testing_loss[1], results_path]
+    predictions.append([label, "images/graphs/results/"+str(label)+".jpg"])
+  return [testing_loss[1], testing_loss[0], results_path, predictions]
