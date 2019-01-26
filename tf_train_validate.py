@@ -2,6 +2,8 @@ import tensorflow as tf
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import matplotlib.pyplot as plt
+import numpy as np
+from PIL import Image
 
 def train_validate():
   mnist = tf.keras.datasets.mnist
@@ -39,6 +41,13 @@ def train_validate():
   plt.savefig(results_path)
   #plt.show()
 
-  testing_loss = model.evaluate(x_test, y_test)
-
+  testing_loss = model.evaluate(x_test,y_test)
+  sample = np.random.choice(x_test,10)
+  y_test = model.predict(sample)
+  for pic,label in zip(sample,y_test):
+    label = np.argmax(label)
+    pic = pic.reshape(28,28)*255
+    pic = Image.fromarray(np.uint8(pic))
+    pic = img.resize((512,512))
+    pic.save("./static/images/graphs/results/"+str(label)+".jpg")
   return [testing_loss[0], testing_loss[1], results_path]
