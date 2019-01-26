@@ -7,6 +7,8 @@ import tensorflow.keras as keras
 import sys
 sys.path.append('./')
 
+from tf_train_validate import *
+
 #--- app configuration ---
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -33,18 +35,8 @@ def p1_index():
 
 @app.route("/p1/train", methods=["GET"])
 def p1_train():
-	data = pd.read_csv("datasets/p1_dataset.csv")
-	x = data.iloc[:,1:-1].values
-	y = data.iloc[:,-1].values
-	from sklearn.preprocessing import LabelEncoder,OneHotEncoder
-	lb = LabelEncoder()
-	y=lb.fit_transform(y)
-	y = y.reshape((len(y),1))
-	ohc = OneHotEncoder(categorical_features=[0],sparse=False)
-	y=ohc.fit_transform(y)
-	model = createModel()
-	model.fit(x,y,batch_size=32,epochs=100)
-	model.save_weights('./checkpoint1')
+	results = train_validate()
+	flash('Model Trained & Validated: Loss - '+str(results[0])+' | Accuracy - '+str(results[1]))
 	return redirect("/")
 
 def createModel():
