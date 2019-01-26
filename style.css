@@ -1,0 +1,81 @@
+* {
+	background-image: url("roltrianglify.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+#navbar {
+	overflow: hidden;
+	background-color: #000000;
+}
+
+#navbar a{
+	float: left;
+	display: block;
+	color: #DAA520;
+	text-align: center;
+	padding: 15px;
+	background-color: #000000;
+	text-decoration: none;
+}
+
+#navbar a:hover {
+	background: red;
+}
+
+h1{
+	float: center;
+	text-align: center;
+}
+
+h2{
+	float: center;
+	text-align: center;
+}
+
+.content {
+	padding: 16px;
+}
+
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+.sticky + .content {
+	padding-top: 60px;
+}
+
+ul {
+	list-style-type: none;
+	float: center;
+	text-align: center;
+	padding: 0px;
+}
+li {
+	padding: 0px;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	
+}
+body {
+	display: block;
+	float: center;
+	margin-left: auto;
+	margin-right: auto;
+	color: white;
+}
+
+p {
+	padding: 20px; 
+}
+
+footer {
+	padding: 20px;
+}

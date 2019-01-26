@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+   <meta charset="UTF-8">
+<title>Robot Overlords</title>
+</head>
+<body>
+
+<div id="navbar" >
+<a href="#home">Home
+</a>
+<a href="#events">About
+</a>
+<a href="#about">Projects
+</a>
+</div>
+
+<img id="logo" src="title.png" alt="Robot Overlords" class="center">
+
+<div>
+<h2>Projects</h2>
+<ul>
+<li>Iris Flower</li>
+<li>Credit Card Fraud</li>
+<li>Stock Hurdle</li>
+</ul>
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+</body>
+</html>
