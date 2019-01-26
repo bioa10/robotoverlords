@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+<!-- Head -->
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+{% endblock head %}
+
+<!-- Content -->
+{% block content %}
+
+<div class="ro-exercises">
+<p>Flappy Bird was an extremely popular mobile game from many years back.
+With simple gameplay, players would become very competitive with
+the people around them, and soon, the game rose in popularity.
+Eventually, the creator grew tire of the fame, and decided 
+to remove it to the application from stores. <br>
+The main objective of the game is to avoid hitting the pipes that come from the
+top and bottom of the screen with the bird, the player's character. Using 
+Machince Learning, an algorithm was used to allow the bird to traverse 
+the pipes without dying. To achieve this, many trials and errors had to 
+take place for the computer could get use to the game environment.</p>
+</div>
+
+{% endblock content %}
