@@ -16,6 +16,7 @@
 	max-width: 275px;
 	border: 2px solid black;
 	position: relative;
+	max-height: 375px;
 }
 .ro-exercise .ro-exercise-title {
 	position: absolute;
