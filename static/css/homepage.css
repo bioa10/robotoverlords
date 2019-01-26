@@ -16,6 +16,7 @@
 	max-width: 275px;
 	border: 2px solid black;
 	position: relative;
+	max-height: 375px;
 }
 .ro-exercise .ro-exercise-title {
 	position: absolute;
@@ -38,6 +39,8 @@
 	-webkit-transition: height 2s;
 	-moz-transition: height 1s;
 	transition: height 2s;
+	letter-spacing:3px;
+	font-size: 16px;
 }
 .ro-exercise:hover .ro-exercise-description {
 	padding: .5rem 0;

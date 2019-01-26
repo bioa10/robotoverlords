@@ -1,0 +1,31 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"> </script>
+    <script src="main.js"></script>
+    <script src="Bird.js"></script>
+    <script src="Pipe.js"></script>
+    <script src="brain.js"></script>
+    <script src="matrix.js"></script>
+</head>
+
+<body>
+    <canvas id="screen" width="400" height="300"></canvas>
+    <div class="slidecontainer">
+        <p style="float: left; padding-left: 10px;">Fram Rate: </p>
+        <input type="range" min="1" max="450" value="30" class="slider" id="frameRate" style="margin-top: 15px; width: 300px">
+    </div>
+    <p id="score" style="padding-left: 10px">Score: </p>
+    <p id="birdID" style="padding-left: 10px">Bird: </p>
+    <p id="generation" style="padding-left: 10px">Generation: </p>
+    <p id="highscore" style="padding-left: 10px">Highest Score: </p>
+    <button type="button" id="load-bird" style="height: 30px; width: 150px; float: left; margin-right: 10px">Load the ultimate bird</button>
+    <button type="button" id="train-bird" style="height: 30px; width: 150px;">Training birds</button>
+</body>
+
+</html>

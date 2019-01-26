@@ -1,5 +1,7 @@
 $(document).ready(function () {
 	$('[data-url]').click(function (e) {
-	    document.location = $(this).data('url');
+		if (!$(e.target).is('a')) {
+		    document.location = $(this).data('url');
+		}
 	});
 });
