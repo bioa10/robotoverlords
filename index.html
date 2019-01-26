@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+   <meta charset="UTF-8">
+<title>Robot Overlords</title>
+</head>
+<body>
+
+   // Navbar information for the user to have better experience
+<div id="navbar" >
+<a href="">Home
+</a>
+<a href="">About
+</a>
+<a href="">Projects
+</a>
+</div>
+
+<img id="logo" src="title.png" alt="Robot Overlords" class="center">
+
+   
+   //Projects that showcase the power of Machine Learning
+<div>
+<h2>Projects</h2>
+<ul>
+<li>Iris Flower</li>
+<li>Credit Card Fraud</li>
+<li>Stock Hurdle</li>
+</ul>
+</div>
+
+   // Code for the navbar
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+   // End of code for navbar
+</body>
+</html>
