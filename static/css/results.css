@@ -1,0 +1,29 @@
+.ro-results-graph {
+	max-width: 450px;
+	max-height: 450px;
+	height: auto;
+	width: auto;
+	border: 1px solid black;
+}
+
+.ro-results-predictions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin:0 -0.25rem;
+}
+.ro-results-prediction {
+	margin: 0 .25rem 1rem .25rem;
+	background: black;
+}
+.ro-results-prediction p {
+	padding: .5rem 0 .5rem 1rem;
+	margin: 0;
+	border-top: 1px solid white;
+}
+.ro-results-prediction img {
+	max-width: 200px;
+	max-height: 200px;
+	height: auto;
+	width: auto;
+}
