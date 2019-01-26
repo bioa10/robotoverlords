@@ -1,0 +1,49 @@
+.ro-exercises {
+	display: flex;
+	margin: 0 -0.5rem;
+	padding: 3rem 2rem;
+	justify-content: space-between;
+}
+.ro-exercise {
+	text-align: center;
+	margin: .5rem;
+	border-radius: .25rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	overflow: hidden;
+	max-width: 275px;
+	border: 2px solid black;
+	position: relative;
+}
+.ro-exercise .ro-exercise-title {
+	position: absolute;
+	background: rgba(0,0,0,.9);
+	padding: .5rem 0;
+	color: white;
+	font-weight: bold;
+	top:0;left:0;right:0;
+	overflow: hidden;
+}
+.ro-exercise .ro-exercise-description {
+	font-family: Rajdhani;
+	background: rgba(0,0,0,.9);
+	color: white;
+	position: absolute;
+	bottom:0;left:0;right:0;
+	line-height: 3;
+	height: 0;
+	overflow: hidden;
+	-webkit-transition: height 2s;
+	-moz-transition: height 1s;
+	transition: height 2s;
+}
+.ro-exercise:hover .ro-exercise-description {
+	padding: .5rem 0;
+ 	height: auto;
+}
+.ro-exercise img {
+	height: 100%;
+	width: auto;
+}
