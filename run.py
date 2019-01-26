@@ -26,12 +26,17 @@ from models import *
 def home():
     return render_template("index.html")
 
-@app.route("/add_post", methods=["POST"])
-def add_post():
-	book = Book(title=request.form.get("title"))
-	db.session.add(book)
-	db.session.commit()
-	return redirect("/")
+@app.route("/p1", methods=["GET"])
+def p1_index():
+    return render_template("p1/index.html")
+
+@app.route("/p1/input", methods=["GET"])
+def p1_input():
+    return render_template("p1/input.html")
+
+@app.route("/p1/input_post", methods=["POST"])
+def p1_input_post():
+    return redirect("/p1")
 
 # @app.route("/update/<book_id>", methods=["GET"])
 # def update(book_id):
