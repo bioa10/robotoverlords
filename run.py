@@ -2,7 +2,8 @@ from flask import Flask, flash, render_template, request, redirect
 from flask_migrate import Migrate
 
 from flask_sqlalchemy import SQLAlchemy
-
+import pandas as pd
+import tensorflow.keras as keras
 import sys
 sys.path.append('./')
 
@@ -30,13 +31,48 @@ def home():
 def p1_index():
     return render_template("p1/index.html")
 
-@app.route("/p1/input", methods=["GET"])
-def p1_input():
-    return render_template("p1/input.html")
+@app.route("/p1/train", methods=["GET"])
+def p1_train():
+	data = pd.read_csv("datasets/p1_dataset.csv")
+	x = data.iloc[:,1:-1].values
+	y = data.iloc[:,-1].values
+	from sklearn.preprocessing import LabelEncoder,OneHotEncoder
+	lb = LabelEncoder()
+	y=lb.fit_transform(y)
+	y = y.reshape((len(y),1))
+	ohc = OneHotEncoder(categorical_features=[0],sparse=False)
+	y=ohc.fit_transform(y)
+	model = createModel()
+	model.fit(x,y,batch_size=32,epochs=100)
+	model.save_weights('./checkpoint1')
+	return redirect("/")
 
-@app.route("/p1/input_post", methods=["POST"])
-def p1_input_post():
-    return redirect("/p1")
+def createModel():
+	model = keras.models.Sequential()
+	model.add(keras.layers.Dense(4))
+	model.add(keras.layers.Dense(5))
+	model.add(keras.layers.Dense(3))
+	model.add(keras.layers.Dense(3,activation='softmax'))
+	model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accuracy'])
+	return model
+
+@app.route("/p1/validate", methods=["GET"])
+def p1_validate():
+	data = pd.read_csv("datasets/p1_dataset.csv")
+	x = data.iloc[:,1:-1].values
+	y = data.iloc[:,-1].values
+	from sklearn.preprocessing import LabelEncoder,OneHotEncoder
+	lb = LabelEncoder()
+	y=lb.fit_transform(y)
+	y = y.reshape((len(y),1))
+	ohc = OneHotEncoder(categorical_features=[0],sparse=False)
+	y=ohc.fit_transform(y)
+
+	model = createModel()
+	model.load_weights("./checkpoint1")
+	accuracy = model.evaluate(x,y)[1]
+	flash('Model Trained: '+ str(accuracy))
+	return redirect("/")
 
 # @app.route("/update/<book_id>", methods=["GET"])
 # def update(book_id):
