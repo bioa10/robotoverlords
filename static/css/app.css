@@ -1,0 +1,37 @@
+/* Main Content Areas */
+body {
+	background-image: url('../images/wallpaper.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	font-family: Orbitron;
+}
+.ro-content-constraint {
+	max-width:1024;
+	width: 100%;
+	margin: 0 auto;
+}
+.ro-wrapper {
+	background: rgba(0,0,0,.6);
+	flex: 1;
+}
+* {
+	color: white;
+}
+
+/* Header */
+.ro-header {
+	background-color: black;
+	padding: .5rem 0;
+}
+#logo {
+	max-width: 500px;
+}
+
+/* General Helpers */
+[data-url] {
+	cursor: pointer;
+}

@@ -1,12 +1,46 @@
 {% extends "layout.html" %}
 
+<!-- Head -->
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+{% endblock head %}
+
+<!-- Content -->
 {% block content %}
+
 <div class="ro-exercises">
-	<a href="/p1/train" class="ro-exercise">
-		Project 1 - Train
-	</a>
-	<a href="/p1/validate" class="ro-exercise">
-		Project 1 - Validate
-	</a>
+	<div class="ro-exercise" data-url="/p1">
+		<h4 class="ro-exercise-title">Iris</h4>
+		<img src="{{ url_for('static', filename='images/projects/eye.jpg') }}" alt="">
+		<span class="ro-exercise-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		Erat enim res aperta. Quis hoc dicit? Itaque hic ipse iam pridem est reiectus;</span>
+	</div>
+	<div class="ro-exercise" data-url="/p2">
+		<h4 class="ro-exercise-title">Credit Card Fraud</h4>
+		<img src="{{ url_for('static', filename='images/projects/fraud.jpg') }}" alt="">
+		<span class="ro-exercise-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		Erat enim res aperta. Quis hoc dicit? Itaque hic ipse iam pridem est reiectus;</span>
+	</div>
+	<div class="ro-exercise" data-url="/p3">
+		<h4 class="ro-exercise-title">Stock Pricing</h4>
+		<img src="{{ url_for('static', filename='images/projects/hurdle.jpg') }}" alt="">
+		<span class="ro-exercise-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		Erat enim res aperta. Quis hoc dicit? Itaque hic ipse iam pridem est reiectus;</span>
+	</div>
 </div>
+
+<!-- <script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script> -->
 {% endblock content %}

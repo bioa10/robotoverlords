@@ -1,50 +1,41 @@
 <html>
 	<head>
-		<style>
-			body {
-				font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-				font-size: 1rem;
-				font-weight: 400;
-				line-height: 1.5;
-				color: #292b2c;
-			}
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
 
-			.ro-header {
-				min-height: 75px;
-			}
-			.ro-exercises {
-				display: flex;
-				margin: 0 -.5rem;
-			}
-			.ro-exercise {
-				height: 80px;
-				width: 100px;
-				margin: .5rem;
-				border: 1px solid #dfdfdf;
-				font-size: 16px;
-				border-radius: .25rem;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				font-weight: bold;
-			}
-		</style>
+		<!-- Bootstrap Files -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+		<!-- Font Awesome -->
+		<script src="https://use.fontawesome.com/daf3180a9c.js"></script>
+
+		<!-- Google Font -->
+		<link href="https://fonts.googleapis.com/css?family=Orbitron|Rajdhani" rel="stylesheet">
+
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+		<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+		{% block head %}{% endblock %}
 	</head>
 	<body>
-	<div style="max-width:1024;margin:auto;">
 		<header class="ro-header">
-			<h1>Robot Overlords</h1>
+			<div class="ro-header-inner ro-content-constraint">
+				<img id="logo" src="{{ url_for('static', filename='images/title.png') }}" alt="Robot Overlords" class="img-fluid" data-url="/">
+			</div>
 		</header>
-		<hr>
-		{% with messages = get_flashed_messages() %}
-		  {% if messages %}
-			<ul class=flashes>
-			{% for message in messages %}
-			  <div style="background-color:red;">{{ message }}</div>
-			{% endfor %}
-		  {% endif %}
-		{% endwith %}
-		{% block content %}{% endblock %}
-	</div>
+		<div class="ro-wrapper ro-content-constraint">
+			<!-- Flash Messages -->
+			{% with messages = get_flashed_messages() %}
+			  {% if messages %}
+				{% for message in messages %}
+					<div class="alert alert-primary" role="alert">{{ message }}</div>
+				{% endfor %}
+			  {% endif %}
+			{% endwith %}
+
+			{% block content %}{% endblock %}
+		</div>
 	</body>
 </html>
