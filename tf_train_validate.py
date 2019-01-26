@@ -42,12 +42,13 @@ def train_validate():
   #plt.show()
 
   testing_loss = model.evaluate(x_test,y_test)
-  sample = np.random.choice(x_test,10)
+  c = np.random.choice(len(x_test),10)
+  sample = x_test[c]
   y_test = model.predict(sample)
   for pic,label in zip(sample,y_test):
     label = np.argmax(label)
     pic = pic.reshape(28,28)*255
     pic = Image.fromarray(np.uint8(pic))
-    pic = img.resize((512,512))
+    pic = pic.resize((512,512))
     pic.save("./static/images/graphs/results/"+str(label)+".jpg")
   return [testing_loss[0], testing_loss[1], results_path]
