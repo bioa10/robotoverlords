@@ -38,6 +38,8 @@
 	-webkit-transition: height 2s;
 	-moz-transition: height 1s;
 	transition: height 2s;
+	letter-spacing:3px;
+	font-size: 16px;
 }
 .ro-exercise:hover .ro-exercise-description {
 	padding: .5rem 0;
