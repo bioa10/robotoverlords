@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+<!-- Head -->
+{% block head %}
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.4.0/fabric.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<script src="{{ url_for('static', filename='js/p1/main.js') }}"></script>
+{% endblock head %}
+
+<!-- Content -->
+{% block content %}
+<div class="ro-title">
+	<h2>Draw Number</h2>
+	<a href="/" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Home</a>
+</div>
+<hr>
+<div class="d-flex">
+	<div id="drawing_area">
+	    <div id="canvas_background">
+	        <canvas id="drawing_sheet" width="280" height="280"></canvas>
+	    </div><br>
+	    <div id="button">
+	        <button type="button" class="btn btn-sm btn-primary" id="predict_button">Predict</button>
+	        <button type="button" class="btn btn-sm btn-primary" id="clear_button">Clear</button>
+	    </div>
+	</div>
+	<div class="chart-container ml-3">
+		<canvas id="chart" width="400" height="300"></canvas>
+	</div>
+</div>
+
+{% endblock content %}
