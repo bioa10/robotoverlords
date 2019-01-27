@@ -8,6 +8,7 @@ import sys
 sys.path.append('./')
 
 from tf_train_validate import *
+from p2_tf_train_validate import *
 
 #--- app configuration ---
 app = Flask(__name__)
@@ -47,6 +48,15 @@ def p1_data():
 	return render_template("p1/data.html",
 		datasets=get_data()
 	)
+
+#--- Project 2: CCFraud ---
+@app.route("/p2", methods=["GET"])
+def p2_index():
+    return render_template("p2/index.html")
+
+@app.route("/p2/train", methods=["GET"])
+def p2_train(): #Still needs to be done
+	return
 
 #--- Project 3: Flappy Bird---
 @app.route("/p3", methods=["GET"])
