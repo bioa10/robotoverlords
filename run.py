@@ -13,6 +13,7 @@ sys.path.append('./')
 
 from tf_train_validate import *
 from p2_tf_train_validate import *
+from ShakespeareReader import *
 
 #--- app configuration ---
 app = Flask(__name__)
@@ -87,6 +88,23 @@ def p3_index():
 @app.route("/p3/play", methods=["GET"])
 def p3_play():
 	return render_template("p3/play.html")
+
+#--- Project 4: Shakespeare---
+@app.route("/p4", methods=["GET"])
+def p4_index():
+    return render_template("p4/index.html")
+
+@app.route("/p4/generate", methods=["GET"])
+def p4_generate():
+	return render_template("p4/generate.html")
+
+@app.route("/p4/generate_post", methods=["POST"])
+def p4_generate_post():
+	div = float(request.form.get('diversity'))
+	m_n = int(request.form.get('model_number'))
+	return render_template("p4/results.html",
+		text = gen_shake(div,m_n)
+	)
 
 if __name__ == "__main__":
     app.run(debug=True)

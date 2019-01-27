@@ -1,13 +1,25 @@
 {% extends "layout.html" %}
 
+<!-- Head -->
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+{% endblock head %}
+
 <!-- Content -->
 {% block content %}
-
 <div class="ro-title">
-	<h2>Project: Shakespeare</h2>
+	<h2>Project Details: Shakespeare</h2>
 	<a href="/" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Home</a>
 </div>
 <hr>
-<p class="ro-project-description">In this project we illustrate the core functionality in machine learning using python. In just a single script the dataset is loaded, the model is trained, then validated, and a few cases are caught to prove its effectiveness. The dataset is quite simple. Comprised of image data and their corresponding numeric value, you can view examples of it <a href="/p1/data">here</a>. Because the train script handles all the code associated with managing a model, it can be quite can come with quite a wait time. One can view the epochs inside the console from which this web app is running to track the progess of an individual train.</p>
+<div class="ro-project-description">
+    <p>Shakespeare was an influential writer in the era of english monarchies.
+       Born in 1564 and death in 1616; Shakeaspeare wrote many plays throughout the years
+       that changed high school english classes for centuries </p><br>
+       The main objective of the application is that when a seed is given to the
+       application the code builds a script similar to old Shakespeare plays.
+       The final set of data consists of 60 epochs or datasets with which to derive
+       a partial play script will characters and dialogue. </p>
+</div>
 
 {% endblock content %}

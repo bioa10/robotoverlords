@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+<!-- Content -->
+{% block content %}
+
+<div class="ro-title">
+	<h2>Project Results: Shakespeare</h2>
+	<a href="/" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Home</a>
+</div>
+<hr>
+<p class="ro-project-description">
+	{% for line in text %}
+		<div class="ro-project-description">
+			{{line}}
+		</div>
+	{% endfor %}
+</p>
+
+{% endblock content %}
