@@ -1,5 +1,9 @@
-from flask import Flask, flash, render_template, request, redirect
+from flask import Flask, flash, render_template, request, redirect, jsonify
 from flask_migrate import Migrate
+from PIL import Image
+from io import BytesIO
+import base64
+import numpy as np
 
 from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
@@ -9,6 +13,7 @@ sys.path.append('./')
 
 from tf_train_validate import *
 from p2_tf_train_validate import *
+from ShakespeareReader import *
 
 #--- app configuration ---
 app = Flask(__name__)
@@ -48,6 +53,26 @@ def p1_data():
 	return render_template("p1/data.html",
 		datasets=get_data()
 	)
+@app.route("/p1/draw_example", methods=["GET"])
+def p1_draw_exmample():
+	return render_template("p1/draw_example.html")
+@app.route("/p1/draw", methods=["GET"])
+def p1_draw():
+	return render_template("p1/draw.html")
+@app.route("/p1/draw_post", methods=["POST"])
+def p1_draw_form():
+	base_64 = request.form.get('base_64')
+	# save base64 to file
+	# data['img'] = base_64
+	img = Image.open(BytesIO(base64.b64decode(base_64))).convert('L')
+	img = img.resize((28,28))
+	data = np.asarray(img.getdata()).reshape((1,784))
+	model = get_model()
+	print('Input Pre: '+str(data.shape))
+	print('Input Post: '+str(data))
+	y_val = model.predict(data)
+	flash('In Progress: '+str(np.argmax(y_val)))
+	return redirect("/")
 
 #--- Project 2: CCFraud ---
 @app.route("/p2", methods=["GET"])
@@ -66,6 +91,23 @@ def p3_index():
 @app.route("/p3/play", methods=["GET"])
 def p3_play():
 	return render_template("p3/play.html")
+
+#--- Project 4: Shakespeare---
+@app.route("/p4", methods=["GET"])
+def p4_index():
+    return render_template("p4/index.html")
+
+@app.route("/p4/generate", methods=["GET"])
+def p4_generate():
+	return render_template("p4/generate.html")
+
+@app.route("/p4/generate_post", methods=["POST"])
+def p4_generate_post():
+	div = float(request.form.get('diversity'))
+	m_n = int(request.form.get('model_number'))
+	return render_template("p4/results.html",
+		text = gen_shake(div,m_n)
+	)
 
 if __name__ == "__main__":
     app.run(debug=True)

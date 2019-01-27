@@ -21,7 +21,7 @@
         <button id="clear_button">Clear</button>
     </div>
 
-    
+
     <script type='text/javascript'>
         /*jslint browser:true */
         "use strict";
@@ -30,10 +30,10 @@
         var context = document.getElementById('sheet').getContext("2d");
         var canvas = document.getElementById('sheet');
         context = canvas.getContext("2d");
-        context.strokeStyle = "white";
+        context.strokeStyle = "black";
         context.lineJoin = "round";
         context.lineWidth = 5;
-        context.fillStyle = 'black';
+        context.fillStyle = 'white';
         context.fillRect(0, 0, canvas.width, canvas.height);
 
         var clickX = [];
@@ -186,22 +186,22 @@
 
 
         })
-        
+
     </script>
 
     <script>
         var clear_button = document.getElementById('clear_button');
         clear_button.addEventListener("mouseup", function() {
 
-            context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas  
-            context.strokeStyle = "white";
+            context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
+            context.strokeStyle = "black";
             context.lineJoin = "round";
             context.lineWidth = 5;
-            context.fillStyle = 'black';
+            context.fillStyle = 'white';
             context.fillRect(0, 0, canvas.width, canvas.height);
 
         })
-        
+
     </script>
 
 

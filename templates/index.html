@@ -7,6 +7,8 @@
 
 <!-- Content -->
 {% block content %}
+<h2>Available Projects</h2>
+<hr>
 
 <div class="ro-exercises">
 	<div class="ro-exercise" data-url="/p1">
@@ -14,17 +16,17 @@
 		<img src="{{ url_for('static', filename='images/projects/eye.jpg') }}" alt="">
 		<span class="ro-exercise-description">
 			<a href="/p1">Overview</a><br>
+			<a href="/p1/draw_example">Draw</a><br>
 			<a href="/p1/data">Data</a><br>
 			<a href="/p1/train">Train</a>
 		</span>
 	</div>
-	<div class="ro-exercise" data-url="/p2">
-		<h4 class="ro-exercise-title">Credit Card Fraud</h4>
-		<img src="{{ url_for('static', filename='images/projects/fraud.jpg') }}" alt="">
+	<div class="ro-exercise" data-url="/p4">
+		<h4 class="ro-exercise-title">Shakespeare</h4>
+		<img src="{{ url_for('static', filename='images/projects/shakes.jpg') }}" alt="">
 		<span class="ro-exercise-description">
-			<a href="/p2">Overview</a><br>
-			<a href="/p2/data">Data</a><br>
-			<a href="/p2/train">Train</a>
+			<a href="/p4">Overview</a><br>
+			<a href="/p4/generate">Generate</a><br>
 		</span>
 	</div>
 	<div class="ro-exercise" data-url="/p3">
@@ -32,53 +34,9 @@
 		<img src="{{ url_for('static', filename='images/projects/flappy_300x400.png') }}" alt="">
 		<span class="ro-exercise-description">
 			<a href="/p3">Overview</a><br>
-			<a href="/p3/data">Data</a><br>
-			<a href="/p3/watch">Watch</a>
+			<a href="/p3/play">Play</a>
 		</span>
 	</div>
 </div>
 
-<div class="ro-exercises">
-	<div class="ro-exercise" data-url="/p4">
-		<h4 class="ro-exercise-title">Shakespeare</h4>
-		<img src="{{ url_for('static', filename='../shakespeare/shakes.jpg') }}" alt="">
-		<span class="ro-exercise-description">
-			<a href="/p1">Overview</a><br>
-			<a href="/p1/data">Data</a><br>
-			<a href="/p1/train">Train</a>
-		</span>
-	</div>
-	<div class="ro-exercise" data-url="/p5">
-		<h4 class="ro-exercise-title">Credit Card Fraud</h4>
-		<img src="{{ url_for('static', filename='images/projects/fraud.jpg') }}" alt="">
-		<span class="ro-exercise-description">
-			<a href="/p2">Overview</a><br>
-			<a href="/p2/data">Data</a><br>
-			<a href="/p2/train">Train</a>
-		</span>
-	</div>
-	<div class="ro-exercise" data-url="/p6">
-		<h4 class="ro-exercise-title">Flappy Bird</h4>
-		<img src="{{ url_for('static', filename='images/projects/flappy_300x400.png') }}" alt="">
-		<span class="ro-exercise-description">
-			<a href="/p3">Overview</a><br>
-			<a href="/p3/data">Data</a><br>
-			<a href="/p3/watch">Watch</a>
-		</span>
-	</div>
-</div>
-<!-- <script>
-window.onscroll = function() {myFunction()};
-
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
-
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
-</script> -->
 {% endblock content %}
