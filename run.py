@@ -53,9 +53,9 @@ def p1_data():
 def p3_index():
     return render_template("p3/index.html")
 
-@app.route("/p3/watch", methods=["GET"])
-def p3_watch():
-	return render_template("p3/watch.html")
+@app.route("/p3/play", methods=["GET"])
+def p3_play():
+	return render_template("p3/play.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
