@@ -15,7 +15,7 @@ body {
 	margin: 0 auto;
 }
 .ro-wrapper {
-	background: rgba(0,0,0,.7);
+	background: grey;
 	flex: 1;
 	padding: 1rem;
 	border-right: 2px solid black;
@@ -31,7 +31,24 @@ body {
 	padding: .5rem 0;
 }
 #logo {
-	max-width: 500px;
+	max-width: 650px;
+}
+
+/* Title Row */
+.ro-title {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: flex-end;
+}
+
+.ro-project-description {
+	font-family: Rajdhani;
+	line-height: 3;
+	letter-spacing:3px;
+	font-size: 18px;
+	font-weight: bold;
+	text-indent: 50px;
 }
 
 /* General Helpers */
@@ -46,4 +63,8 @@ a {
 }
 a:hover {
 	color: #9D0000;
+}
+h2 {
+	margin: 0;
+	font-size: 1.5rem;
 }

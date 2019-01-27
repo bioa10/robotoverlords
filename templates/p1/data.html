@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+<!-- Head -->
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
+{% endblock head %}
+
+<!-- Content -->
+{% block content %}
+
+<div class="ro-title">
+	<h2>Data Used <small>(first 12 only)</small></h2>
+	<a href="/" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Home</a>
+</div>
+<hr>
+<div class="ro-results-predictions">
+	{% for set in datasets %}
+		<div class="ro-results-prediction">
+			<img src="{{ url_for('static', filename=set[1]) }}" class="img-fluid">
+			<p>Y-Value: {{set[0]}}</p>
+		</div>
+	{% endfor %}
+</div>
+
+{% endblock content %}

@@ -8,7 +8,11 @@
 <!-- Content -->
 {% block content %}
 
-<h2>Training Results</h2><hr>
+<div class="ro-title">
+	<h2>Training Results</h2>
+	<a href="/" class="btn btn-sm btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Home</a>
+</div>
+<hr>
 <div><span>Loss / Error:</span> {{'%.2f' % error}}<span class="mx-3">|</span><span>Accuracy: </span> {{'%.2f' % accuracy}}</div><br>
 <img src="{{ url_for('static', filename=results_path) }}" alt="Results Graph" class="ro-results-graph"/><br><br>
 

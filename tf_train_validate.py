@@ -24,11 +24,11 @@ def train_validate():
   epoch = []
   epoch_loss = []
   for x in range(1,3):
-  	history = model.fit(x_train, y_train, epochs=1)
-  	model.test_on_batch(x_test, y_test)
-  	model.metrics_names
-  	epoch.append(x)
-  	epoch_loss.append(history.history['loss'])
+    history = model.fit(x_train, y_train, epochs=1)
+    model.test_on_batch(x_test, y_test)
+    model.metrics_names
+    epoch.append(x)
+    epoch_loss.append(history.history['loss'])
 
   #  "Training Accuracy"
   # Plotting the Results
@@ -37,7 +37,7 @@ def train_validate():
   plt.ylabel('loss/error')
   plt.xlabel('training epoch')
   plt.legend()
-  results_path = 'images/graphs/results/p1_results.png'
+  results_path = 'images/results/p1/p1_results.png'
   plt.savefig("static/"+results_path)
   #plt.show()
 
@@ -51,6 +51,23 @@ def train_validate():
     pic = pic.reshape(28,28)*255
     pic = Image.fromarray(np.uint8(pic))
     pic = pic.resize((512,512))
-    pic.save("./static/images/graphs/results/"+str(label)+".jpg")
-    predictions.append([label, "images/graphs/results/"+str(label)+".jpg"])
+    pic.save("./static/images/results/p1/"+str(label)+".jpg")
+    predictions.append([label, "images/results/p1/"+str(label)+".jpg"])
   return [testing_loss[1], testing_loss[0], results_path, predictions]
+
+
+def get_data():
+  mnist = tf.keras.datasets.mnist
+
+  (x_train, y_train),(x_test, y_test) = mnist.load_data()
+
+  dataset = []
+  i = 1
+  for x,y in zip(x_train[:12],y_train[:12]):
+    pic = Image.fromarray(np.uint8(x))
+    pic = pic.resize((512,512))
+    pic.save("./static/images/data/p1/"+str(i)+".jpg")
+    dataset.append([y, "images/data/p1/"+str(i)+".jpg"])
+    i += 1
+
+  return dataset
