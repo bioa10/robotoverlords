@@ -55,20 +55,20 @@ def p1_data():
 @app.route("/p1/draw", methods=["GET"])
 def p1_draw():
 	return render_template("p1/draw.html")
-# @app.route("/p1/draw_post", methods=["POST"])
-# def p1_draw_form():
-# 	base_64 = request.form.get('base_64')
-# 	# save base64 to file
-# 	# data['img'] = base_64
-# 	img = Image.open(BytesIO(base64.b64decode(base_64))).convert('L')
-# 	img = img.resize((28,28))
-# 	data = np.asarray(img.getdata()).reshape((1,784))
-# 	model = get_model()
-# 	print('Input Pre: '+str(data.shape))
-# 	print('Input Post: '+str(data))
-# 	y_val = model.predict(data)
-# 	flash('In Progress: '+str(np.argmax(y_val)))
-# 	return redirect("/")
+@app.route("/p1/draw_post", methods=["POST"])
+def p1_draw_form():
+	base_64 = request.form.get('base_64')
+	# save base64 to file
+	# data['img'] = base_64
+	img = Image.open(BytesIO(base64.b64decode(base_64))).convert('L')
+	img = img.resize((28,28))
+	data = np.asarray(img.getdata()).reshape((1,784))
+	model = get_model()
+	print('Input Pre: '+str(data.shape))
+	print('Input Post: '+str(data))
+	y_val = model.predict(data)
+	flash('In Progress: '+str(np.argmax(y_val)))
+	return redirect("/")
 
 #--- Project 2: CCFraud ---
 @app.route("/p2", methods=["GET"])
