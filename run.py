@@ -53,6 +53,9 @@ def p1_data():
 	return render_template("p1/data.html",
 		datasets=get_data()
 	)
+@app.route("/p1/draw_example", methods=["GET"])
+def p1_draw_exmample():
+	return render_template("p1/draw_example.html")
 @app.route("/p1/draw", methods=["GET"])
 def p1_draw():
 	return render_template("p1/draw.html")
