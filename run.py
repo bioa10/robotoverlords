@@ -33,7 +33,6 @@ def home():
 @app.route("/p1", methods=["GET"])
 def p1_index():
     return render_template("p1/index.html")
-
 @app.route("/p1/train", methods=["GET"])
 def p1_train():
 	results = train_validate()
@@ -43,15 +42,20 @@ def p1_train():
 		results_path=results[2],
 		predictions=results[3]
 	)
+@app.route("/p1/data", methods=["GET"])
+def p1_data():
+	return render_template("p1/data.html",
+		datasets=get_data()
+	)
 
 #--- Project 3: Flappy Bird---
 @app.route("/p3", methods=["GET"])
 def p3_index():
     return render_template("p3/index.html")
 
-@app.route("/p3/watch", methods=["GET"])
-def p3_watch():
-	return render_template("p3/watch.html")
+@app.route("/p3/play", methods=["GET"])
+def p3_play():
+	return render_template("p3/play.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

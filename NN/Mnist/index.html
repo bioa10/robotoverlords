@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.4.0/fabric.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <script src="script/main.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Mnist_TFJS</title>
+  </head>
+
+  <body>
+    <div id="drawing_area">
+        <h2 id="head"> Draw a digit! </h2>
+        <div id="canvas_background">
+            <canvas id="drawing_sheet" width="280" height="280"></canvas>
+        </div>        
+        <div id="button">
+            <button type="button" id="clear_button">Clear</button>
+            <button type="button" id="predict_button">Predict</button>
+        </div>
+    </div>
+    <div class="chart-container">
+      <canvas id="chart"></canvas>
+    </div>
+  </body>
+
+</html>

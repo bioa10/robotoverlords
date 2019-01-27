@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+<!-- Head -->
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"></script>
+<script src="{{ url_for('static', filename='js/p3/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/p3/Bird.js') }}"></script>
+<script src="{{ url_for('static', filename='js/p3/Pipe.js') }}"></script>
+<script src="{{ url_for('static', filename='js/p3/brain.js') }}"></script>
+<script src="{{ url_for('static', filename='js/p3/matrix.js') }}"></script>
+{% endblock head %}
+
+<!-- Content -->
+{% block content %}
+    <h2>Flappy Bird Trainer</h2><hr>
+    <div class="d-flex">
+        <canvas id="screen" width="400" height="300"></canvas>
+        <div class="pl-3">
+            <div class="d-flex">
+                <p class="mr-3">Fram Rate:</p>
+                <input type="range" min="1" max="450" value="30" class="slider" id="frameRate" style="flex:1">
+            </div>
+            <p id="score">Score: </p>
+            <p id="birdID">Bird: </p>
+            <p id="generation">Generation: </p>
+            <p id="highscore">Highest Score: </p>
+            <button type="button" id="load-bird" class="btn btn-primary btn-sm">Load the ultimate bird</button>
+            <button type="button" id="train-bird" class="btn btn-primary btn-sm">Training birds</button>
+        </div>
+
+    </div>
+{% endblock content %}

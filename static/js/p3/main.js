@@ -95,7 +95,7 @@ document.onreadystatechange = function () {
   }
 
   function draw_background() {
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "lightblue";
     ctx.fillRect(0, 0, setting.screen_w, setting.screen_h);
   }
 
@@ -111,7 +111,7 @@ document.onreadystatechange = function () {
   }
 
   function draw_pipe() {
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "green";
     for (let i = 0; i < myPipes.length; i++) {
       ctx.fillRect(
         myPipes[i].x,

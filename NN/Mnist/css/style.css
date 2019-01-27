@@ -1,0 +1,40 @@
+#drawing_area{
+    float: left;
+    text-align: center;
+    margin-left: 20px;
+}
+
+#canvas_background{
+    width: 280px;
+    height: 280px;
+    background-color:black;
+    border: 5px solid rgb(255, 100, 0);
+}
+
+#button{
+    text-align: center;
+    background-color:white;
+    padding: 20px;
+}
+
+button[type = 'button']{
+    width: 100px;
+    height: 30px;
+    margin: auto;
+    font-size: 1em;
+}
+
+#head {
+    background-color: white;
+    font-family: 'Comic Sans MS';
+    padding-bottom: 10px;
+
+}
+
+.chart-container{
+    width: 700px;
+    height: auto;
+    float: left;
+    margin-left: 20px;
+    margin-top: 40px;
+}
