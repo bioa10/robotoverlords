@@ -106,3 +106,6 @@ venv.bak/
 # Graphs
 static/images/results
 static/images/data
+
+# PyCharm
+.idea/
