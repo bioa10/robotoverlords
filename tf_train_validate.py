@@ -4,6 +4,8 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
+from keras.models import model_from_json
+
 
 
 
@@ -54,6 +56,12 @@ def train_validate():
     pic = pic.resize((512,512))
     pic.save("./static/images/results/p1/"+str(label)+".jpg")
     predictions.append([label, "images/results/p1/"+str(label)+".jpg"])
+
+  #Save model weights
+  model_json = model.to_json()
+  with open("p1_model.json", "w") as json_file:
+    json_file.write(model_json)
+  model.save_weights("p1_model.h5")
   return [testing_loss[1], testing_loss[0], results_path, predictions]
 
 
@@ -73,5 +81,11 @@ def get_data():
 
   return dataset
 
+#Get model and weights from json and h5 files
 def get_model():
-  return model
+  json_file = open("p1_model.json","r")
+  loaded_model_json = json_file.read()
+  json_file.close()
+  loaded_model = model_from_json(loaded_model_json,custom_objects=None)
+  loaded_model.load_weights("p1_model.h5")
+  return loaded_model
