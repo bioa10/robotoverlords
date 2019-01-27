@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def p2_train_validate:
+def p2_train_validate():
     # Read in file with data from credit card records
     data = pd.read_csv("datasets/ccfraud_dataset.csv")
 
