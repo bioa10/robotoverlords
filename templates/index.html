@@ -9,6 +9,7 @@
 {% block content %}
 <h2>Available Projects</h2>
 <hr>
+
 <div class="ro-exercises">
 	<div class="ro-exercise" data-url="/p1">
 		<h4 class="ro-exercise-title">Read Digits</h4>
@@ -38,4 +39,34 @@
 		</span>
 	</div>
 </div>
+<div class="ro-exercises">
+	<div class="ro-exercise" data-url="/p4">
+		<h4 class="ro-exercise-title">Shakespeare</h4>
+		<img src="{{ url_for('static', filename='images/projects/shakes.jpg') }}" alt="">
+		<span class="ro-exercise-description">
+			<a href="/p4">Overview</a><br>
+			<a href="/p4/data">Data</a><br>
+			<a href="/p4/train">Train</a>
+		</span>
+	</div>
+	<div class="ro-exercise" data-url="/p2">
+		<h4 class="ro-exercise-title">Credit Card Fraud</h4>
+		<img src="{{ url_for('static', filename='images/projects/fraud.jpg') }}" alt="">
+		<span class="ro-exercise-description">
+			<a href="/p2">Overview</a><br>
+			<a href="/p2/data">Data</a><br>
+			<a href="/p2/train">Train</a>
+		</span>
+	</div>
+	<div class="ro-exercise" data-url="/p3">
+		<h4 class="ro-exercise-title">Flappy Bird</h4>
+		<img src="{{ url_for('static', filename='images/projects/flappy_300x400.png') }}" alt="">
+		<span class="ro-exercise-description">
+			<a href="/p3">Overview</a><br>
+			<a href="/p3/data">Data</a><br>
+			<a href="/p3/watch">Watch</a>
+		</span>
+	</div>
+</div>
+
 {% endblock content %}
