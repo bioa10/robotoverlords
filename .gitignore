@@ -104,4 +104,5 @@ venv.bak/
 .mypy_cache/
 
 # Graphs
-static/images/graphs/results
+static/images/results
+static/images/data
